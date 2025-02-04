@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.swp
+youtubeenv/
+.vscode/
+.env
+subtitles/
+chroma_db/
+cache/
+*.sqlite3
