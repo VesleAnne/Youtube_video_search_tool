@@ -14,6 +14,7 @@ By default script returns 3 closest answers to the query. You may change this nu
 1️⃣  **Clone the Repository**
 
 git clone https://github.com/VesleAnne/Youtube_video_search_tool.git 
+
 cd Youtube_video_search_tool
 
 2️⃣  **Create a Virtual Environment**
@@ -21,6 +22,7 @@ cd Youtube_video_search_tool
 python3 -m venv youtubeenv
 
 source youtubeenv/bin/activate  # for Mac/Linux
+
 youtubeenv\Scripts\activate   # for Windows
 
 3️⃣  **Install Dependencies**

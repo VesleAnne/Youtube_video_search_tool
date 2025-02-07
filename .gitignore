@@ -10,3 +10,4 @@ subtitles/
 chroma_db/
 cache/
 *.sqlite3
+subtitles_metadata.csv
