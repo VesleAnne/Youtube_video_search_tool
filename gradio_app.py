@@ -1,6 +1,12 @@
-import os
 import gradio as gr
 import subprocess
+from pathlib import Path
+from dotenv import load_dotenv
+
+SCRIPT_DIR = Path(__file__).parent
+SRC_DIR = SCRIPT_DIR / "src"
+
+load_dotenv(".env")
 
 def is_url(text: str) -> bool:
     """
@@ -24,12 +30,12 @@ def process_input(user_input: str) -> str:
     if is_url(user_input):
         try:
             # Call parser.py to process the link
-            result = subprocess.run(["python3", "parser.py", user_input], capture_output=True, text=True)
+            result = subprocess.run(["python3", str(SRC_DIR / "parser.py"), user_input], capture_output=True, text=True)
             if result.returncode != 0:
                 return f"Error parsing URL: {result.stderr}"
 
             # Call create_database.py to update the database
-            result = subprocess.run(["python3", "create_database.py"], capture_output=True, text=True)
+            result = subprocess.run(["python3", str(SRC_DIR / "create_database.py")], capture_output=True, text=True)
             if result.returncode != 0:
                 return f"Error updating database: {result.stderr}"
 
@@ -41,7 +47,7 @@ def process_input(user_input: str) -> str:
     else:
         try:
             # Call query.py to search the database
-            result = subprocess.run(["python3", "query.py", user_input], capture_output=True, text=True)
+            result = subprocess.run(["python3", str(SRC_DIR / "query.py"), user_input], capture_output=True, text=True)
             if result.returncode != 0:
                 return f"Error querying the database: {result.stderr}"
             
@@ -53,7 +59,7 @@ def process_input(user_input: str) -> str:
 # Gradio Interface
 
 with gr.Blocks() as demo:
-    gr.Markdown("## 📺 YouTube Video Search")
+    gr.Markdown("## 📺 YouTube Video Search tool")
 
     with gr.Row():
         user_input = gr.Textbox(
@@ -63,7 +69,7 @@ with gr.Blocks() as demo:
         )
     output_box = gr.Textbox(
         label="Output",
-        lines=15
+        lines=10
     )
 
     submit_button = gr.Button("Submit")

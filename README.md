@@ -1,4 +1,4 @@
-# 🎬 YouTube Video search engine with Gradio interface
+# 🎬 YouTube Video search tool with Gradio interface
 
 **A Python-based tool that downloads subtitles from YouTube videos, stores them in a vector database (ChromaDB), and allows users to query video content using Gradio. It returns three closest answers with the links to the exact moments in the video where the phrases are.**  
 
@@ -13,8 +13,8 @@ By default script returns 3 closest answers to the query. You may change this nu
 
 1️⃣  **Clone the Repository**
 
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/VesleAnne/Youtube_video_search_tool.git 
+cd Youtube_video_search_tool
 
 2️⃣  **Create a Virtual Environment**
 
@@ -39,8 +39,10 @@ GEMINI_API_KEY="your-google-gemini-key
 
 Run the Gradio Interface:
 
-python3 src/gradio_app.py
+python3 gradio_app.py
 
+- Open a Gradio interface.
 - Enter a YouTube video or channel URL to download subtitles.
 - Enter a query to search subtitles in the database.
 - Click Submit to get results.
+- To stop the app press ctrl+c in your terminal.

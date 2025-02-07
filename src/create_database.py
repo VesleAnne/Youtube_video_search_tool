@@ -8,9 +8,11 @@ from langchain_chroma import Chroma
 from langchain.schema import Document
 from langchain_openai.embeddings import OpenAIEmbeddings
 # from langchain_google_genai import GoogleGenerativeAIEmbeddings
-
 from dotenv import load_dotenv
-load_dotenv('.env')
+
+ROOT_DIR = Path(__file__).parent.parent 
+
+load_dotenv(ROOT_DIR / '.env')
 
 genai.configure(api_key='GEMINI_API_KEY')
 

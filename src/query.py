@@ -10,7 +10,9 @@ from langchain_openai.embeddings import OpenAIEmbeddings
 # import google.generativeai as genai
 
 # Load environment variables from .env
-load_dotenv(".env")
+ROOT_DIR = Path(__file__).parent.parent 
+
+load_dotenv(ROOT_DIR / ".env")
 
 # Read keys and embedding choice
 OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
