@@ -13,13 +13,16 @@ By default script returns 3 closest answers to the query. You may change this nu
 
 1️⃣  **Clone the Repository**
 
+(if you don't have git installed - install it with pip install git or conda install git)
+
 git clone https://github.com/VesleAnne/Youtube_video_search_tool.git 
+
 
 cd Youtube_video_search_tool
 
 2️⃣  **Create a Virtual Environment**
 
-python3 -m venv youtubeenv
+python3 -m venv youtubeenv (or python -m venv youtubeenv)
 
 source youtubeenv/bin/activate  # for Mac/Linux
 
@@ -29,9 +32,15 @@ youtubeenv\Scripts\activate   # for Windows
 
 pip install -r requirements.txt
 
+or
+
+conda install --yes --file requirements.txt
+
+(if conda doesn't work, install "pip" with conda install pip, than install on with pip)
+
 4️⃣  **Set Up API Keys**
 
-Create a .env file in the project root and add:
+Create a .env file in the project root (touch .env) and add:
 
 OPENAI_API_KEY="your-openai-key"
 or 
@@ -41,7 +50,7 @@ GEMINI_API_KEY="your-google-gemini-key
 
 Run the Gradio Interface:
 
-python3 gradio_app.py
+python3 gradio_app.py (or python gradio_app.py)
 
 - Open a Gradio interface.
 - Enter a YouTube video or channel URL to download subtitles.
