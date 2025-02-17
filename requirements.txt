@@ -9,6 +9,5 @@ PySocks==1.7.1
 selenium==4.27.1
 setuptools==66.1.1
 soupsieve==2.6
-uvloop==0.21.0
 watchfiles==1.0.4
 youtube-transcript-api==0.6.3
