@@ -57,3 +57,9 @@ python3 gradio_app.py (or python gradio_app.py)
 - Enter a query to search subtitles in the database.
 - Click Submit to get results.
 - To stop the app press ctrl+c in your terminal.
+
+
+
+
+If you like this tool you may and it helps you, you can treat me to a cup of coffee 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/VesleAnne)
