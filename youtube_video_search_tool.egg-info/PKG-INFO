@@ -1,0 +1,94 @@
+Metadata-Version: 2.4
+Name: youtube_video_search_tool
+Version: 0.1.0
+Summary: A tool to download YouTube subtitles, store them in a vector database, and query video content using Gradio.
+Home-page: https://github.com/VesleAnne/Youtube_video_search_tool
+Author: Anna Simonova
+Author-email: vesleanne.gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Unlicense
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: gradio
+Requires-Dist: chromadb
+Requires-Dist: selenium
+Requires-Dist: beautifulsoup4
+Requires-Dist: python-dotenv
+Requires-Dist: langchain
+Requires-Dist: openai
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 🎬 YouTube Video search tool with Gradio interface
+
+**A Python-based tool that downloads subtitles from YouTube videos, stores them in a vector database (ChromaDB), and allows users to query video content using Gradio. It returns three closest answers with the links to the exact moments in the video where the phrases are.**  
+
+
+## **How it works**
+You can pass a link to a YouTube video or the entire channel. The script then will download subtitles for the video (videos) and store them in a vector database. Then you may make queries to the database to find the exact moment on the video without the need to rewatch it. 
+Note: by default the script downloads subtitles for 120 latest videos on the channel. If you want to change this number, please, go to selenium_parser.py and change the number of scroll downs of the page. The more video you pass at once the longer they will be processed. It takes 12-15 seconds to process one video.
+The script uses GPT or Gemini to create embeddings but it can be changed to use any other model you like. To change this go to create_databse.py
+By default script returns 3 closest answers to the query. You may change this number in the script query.py 
+
+## **Installation**
+
+1️⃣  **Clone the Repository**
+
+(if you don't have git installed - install it with pip install git or conda install git)
+
+git clone https://github.com/VesleAnne/Youtube_video_search_tool.git 
+
+
+cd Youtube_video_search_tool
+
+2️⃣  **Create a Virtual Environment**
+
+python3 -m venv youtubeenv (or python -m venv youtubeenv)
+
+source youtubeenv/bin/activate  # for Mac/Linux
+
+youtubeenv\Scripts\activate   # for Windows
+
+3️⃣  **Install Dependencies**
+
+pip install -r requirements.txt
+
+or
+
+conda install --yes --file requirements.txt
+
+(if conda doesn't work, install "pip" with conda install pip, than install on with pip)
+
+4️⃣  **Set Up API Keys**
+
+Create a .env file in the project root (touch .env) and add:
+
+OPENAI_API_KEY="your-openai-key"
+or 
+GEMINI_API_KEY="your-google-gemini-key
+
+## Usage
+
+Run the Gradio Interface:
+
+python3 gradio_app.py (or python gradio_app.py)
+
+- Open a Gradio interface.
+- Enter a YouTube video or channel URL to download subtitles.
+- Enter a query to search subtitles in the database.
+- Click Submit to get results.
+- To stop the app press ctrl+c in your terminal.
+
+
+
+
+If you like this tool you may and it helps you, you can treat me to a cup of coffee 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/VesleAnne)
