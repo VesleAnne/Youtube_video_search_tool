@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  youtube-search-tool:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - USE_EMBEDDING_PROVIDER=${USE_EMBEDDING_PROVIDER:-openai}
+      - USE_LLM_PROVIDER=${USE_LLM_PROVIDER:-openai}
+      
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      
+      - MAX_WORKERS=${MAX_WORKERS:-4}
+      - MAX_CHANNEL_VIDEOS=${MAX_CHANNEL_VIDEOS:-100}
+      - SCROLL_PAUSE_TIME=${SCROLL_PAUSE_TIME:-2.0}
+      - MAX_SCROLLS=${MAX_SCROLLS:-10}
+      
+      - SELENIUM_HEADLESS=${SELENIUM_HEADLESS:-true}
+      - ENABLE_CACHING=${ENABLE_CACHING:-true}
+      - LOCAL_EMBEDDING_MODEL=${LOCAL_EMBEDDING_MODEL:-all-MiniLM-L6-v2}
+    
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./models:/app/models
+      - ./cache:/app/cache
+      - ./subtitles:/app/subtitles
+    
+    env_file:
+      - .env
+    
+    restart: unless-stopped
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

@@ -1,2 +1,0 @@
-[console_scripts]
-youtube-video-search = youtube_video_search_tool.gradio_app:main

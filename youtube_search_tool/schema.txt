@@ -1,0 +1,19 @@
+youtube_search_tool/
+├── .env                          
+├── requirements.txt              
+├── gradio_app.py                
+├── pyproject.toml                    
+├── __init__.py                    
+├── cli.py                       
+├── README.md                    
+├── src/
+│   ├── __init__.py              
+│   ├── parser.py                
+│   ├── get_subs.py              
+│   ├── create_database.py       
+│   ├── query.py                 
+│   ├── selenium_parser.py       
+│   └── id_extractor.py          
+├── subtitles/                   
+├── chroma_db/                   
+└── models/                      
